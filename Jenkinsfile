@@ -1,4 +1,4 @@
-node {
+node('linux_1') {
      stage 'clone'
      git url: 'https://github.com/CedricCabessa/test.git'
 
@@ -7,5 +7,5 @@ node {
      archive "test"
 
      stage 'package'
-     echo "quickwin"
+     echo "$node"
 }
