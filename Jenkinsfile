@@ -9,7 +9,7 @@ parallel (
        sh "./build.sh"
        archive "test"
        echo "it was linux_1"
-     }
+     },
      node("linux_2") {
        sh "./build.sh"
        archive "test"
