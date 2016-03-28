@@ -5,7 +5,6 @@ node {
 
 stage 'build'
 parallel (
-#??????
      lin1: node("linux_1") {
        sh "./build.sh one"
        archive "test"
