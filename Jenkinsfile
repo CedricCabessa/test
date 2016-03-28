@@ -5,13 +5,14 @@ node {
 
 stage 'build'
 parallel (
-     node("linux_1") {
-       sh "./build.sh"
+#??????
+     lin1: node("linux_1") {
+       sh "./build.sh one"
        archive "test"
        echo "it was linux_1"
      },
-     node("linux_2") {
-       sh "./build.sh"
+     lin2: node("linux_2") {
+       sh "./build.sh two"
        archive "test"
        echo "it was linux_2"
      }
