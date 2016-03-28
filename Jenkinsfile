@@ -5,7 +5,11 @@ node {
 
 stage 'build'
 parallel "first-ui": {
-    BuildIt ("first-ui")
+    node {
+      sh "./build.sh one"
+      archive "test"
+      echo "it was linux_1"
+    }
 }, "second-ui": {
     BuildIt ("second-ui")
 }, "first-ws": {
