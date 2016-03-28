@@ -7,5 +7,5 @@ node('linux_1') {
      archive "test"
 
      stage 'package'
-     echo "$node"
+     echo "quickwin"
 }
