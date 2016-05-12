@@ -5,14 +5,14 @@ node {
 }
 
 stage 'build'
-parallel "random-string-1": {
+parallel "random-string": {
     node("linux_1") {
       unstash "source"
       sh "./build.sh one"
       echo "it was linux_1"
       stash "arch"
     }
-}, "random-string-2": {
+}, "random-string": {
     node("linux_2") {
       unstash "source"
       sh "./build.sh two"
