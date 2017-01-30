@@ -1,4 +1,5 @@
 #!/bin/sh
 
-date > test
-echo $@ >> test
+NODE=$1
+date > test_$NODE
+echo $@ >> test_$NODE
