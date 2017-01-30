@@ -1,28 +1,7 @@
-stage 'clone'
-node {
-     git url: 'https://github.com/CedricCabessa/test.git'
-     stash "source"
-}
-
-stage 'build'
-parallel "random-string-1": {
-    node("linux_1") {
-      unstash "source"
-      sh "./build.sh one"
-      echo "it was linux_1"
-      stash "arch"
+stage('Build') {
+    node {
+        git https://github.com/CedricCabessa/test.git
+        sh './build.sh ${NODE_NAME}'
+        stash includes: 'test', name: 'app'
     }
-}, "random-string-2": {
-    node("linux_2") {
-      unstash "source"
-      sh "./build.sh two"
-      echo "it was linux_2"
-      stash "arch"
-    }
-}
-
-stage 'archive'
-node {
-     unstash "arch"
-     archive "test"
 }
